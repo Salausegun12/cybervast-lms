@@ -6,6 +6,7 @@ You are welcome on board. The journey of 8 weeks as began with a step and from t
 4. Move ahead to your VScode and open a new window. You will see six options listed for you, click the Clone Git Repository option and paste the HTTPS link you copied earlier.
 5. Select the cybervast-lms file you created.
 
-That will be all for today. Do well to act promptly. 
+* Install deps: `npm install` (or `pip install -r requirements.txt`)
+* Start dev server: `npm run dev`
 
 See you soon.
