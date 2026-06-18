@@ -10,13 +10,19 @@ export default function Button({
   ...props
 }) {
   const baseClasses =
-    'inline-flex items-center justify-center gap-2 rounded-md font-medium transition-all duration-200 focus:outline-none';
+    'inline-flex items-center justify-center gap-2 rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
 
   const variants = {
-    primary: 'bg-purple-700 text-white hover:bg-purple-800',
-    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300',
-    ghost: 'bg-transparent text-purple-700 hover:bg-purple-100',
-    danger: 'bg-red-600 text-white hover:bg-red-700',
+    primary:
+      'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] focus:ring-[var(--color-primary)]',
+
+    secondary:
+      'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-400',
+
+    ghost:
+      'bg-transparent text-[var(--color-primary)] hover:bg-purple-50 focus:ring-[var(--color-primary)]',
+
+    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
   };
 
   const sizes = {
@@ -26,7 +32,7 @@ export default function Button({
   };
 
   const disabledClasses =
-    disabled || loading ? 'opacity-50 cursor-not-allowed' : '';
+    disabled || loading ? 'cursor-not-allowed opacity-50' : '';
 
   return (
     <button
@@ -38,7 +44,8 @@ export default function Button({
     >
       {loading ? (
         <>
-          <span>Loading...</span>
+          <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></span>
+          Loading...
         </>
       ) : (
         <>

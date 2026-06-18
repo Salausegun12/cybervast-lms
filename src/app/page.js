@@ -83,6 +83,10 @@ export default function Home() {
 
       <Button disabled>Disabled Button</Button>
 
+      <Button leftIcon="🚀">Launch Course</Button>
+
+      <Button rightIcon="→">Next Lesson</Button>
+
       <Button loading>Loading Button</Button>
     </main>
   );
