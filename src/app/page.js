@@ -142,7 +142,16 @@ export default function Home() {
         />
       </div>
       {/*------- Badge Component ----  */}
+      <div className="flex flex-wrap gap-3">
+        <Badge variant="success">Published</Badge>
 
+        <Badge variant="warning">Pending</Badge>
+
+        <Badge variant="error">Failed</Badge>
+
+        <Badge variant="info">In Progress</Badge>
+        <Badge variant="neutral">Draft</Badge>
+      </div>
     </main>
   );
 }
