@@ -66,6 +66,12 @@
 
 import Button from '@/components/ui/Button';
 
+import Input from '@/components/ui/Input';
+
+import Textarea from '@/components/ui/Textarea';
+
+import Badge from '@/components/ui/Badge';
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-4 p-8">
@@ -88,6 +94,55 @@ export default function Home() {
       <Button rightIcon="→">Next Lesson</Button>
 
       <Button loading>Loading Button</Button>
+
+      {/*---------- Input-------- */}
+      <div className="w-full max-w-md space-y-5">
+        <Input
+          id="name"
+          label="Full Name"
+          placeholder="Enter your name"
+          helperText="Please enter your full name"
+        />
+
+        <Input
+          id="email"
+          label="Email Address"
+          placeholder="Enter your email"
+          error="Email is required"
+        />
+        <Input
+          id="disabled"
+          label="Disabled Input"
+          placeholder="Disabled field"
+          disabled
+        />
+      </div>
+
+      {/*---------------- Textarea ---------- */}
+      <div className="w-full max-w-md space-y-4">
+        <Textarea
+          id="description"
+          label="Course Description"
+          placeholder="Write course description..."
+          helperText="Maximum 500 characters"
+        />
+
+        <Textarea
+          id="feedback"
+          label="Feedback"
+          placeholder="Write feedback..."
+          error="Feedback is required"
+        />
+
+        <Textarea
+          id="disabled-textarea"
+          label="Disabled Textarea"
+          placeholder="Disabled textarea"
+          disabled
+        />
+      </div>
+      {/*------- Badge Component ----  */}
+
     </main>
   );
 }
