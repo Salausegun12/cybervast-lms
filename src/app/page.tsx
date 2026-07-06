@@ -8,6 +8,7 @@ import { Avatar } from '../components/Avatar/Avatar';
 import { Card, CardHeader, CardBody, CardFooter } from '../components/Card/Card';
 import { Sidebar, NavItem } from '../components/Sidebar/Sidebar';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from '../components/Modal/Modal';
+import { ProgressBar } from '../components/ProgressBar/ProgressBar';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,6 +49,15 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Progress Bar Section */}
+      <div className="flex flex-col gap-4 w-full">
+        <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">Progress Bar Component</h2>
+        <div className="flex flex-col gap-6 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 w-full">
+          <ProgressBar progress={25} />
+          <ProgressBar progress={75} />
+          <ProgressBar progress={100} showLabel={false} />
+        </div>
+      </div>
 
       {/* Avatars Section */}
       <div className="flex flex-col gap-4 w-full">
