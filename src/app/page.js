@@ -63,6 +63,7 @@
 //     </div>
 //   );
 // }
+'use client';
 
 import Button from '@/components/ui/Button';
 
@@ -76,103 +77,182 @@ import Card from '@/components/ui/Card';
 
 import Avatar from '@/components/ui/Avatar';
 
+import NavItem from '@/components/ui/NavItem';
+
+// import Sidebar from '@/components/layout/Sidebar';
+
+import Sidebars from '@/components/ui/Sidebars';
+
+import { useState } from 'react';
+
+import Modal from '@/components/ui/Modal';
+
+import ProgressBar from '@/components/ui/ProgressBar';
+
+import Dropdown from '@/components/ui/Dropdown';
+
 export default function Home() {
+  const [open, setOpen] = useState(false);
+  const [course, setCourse] = useState('react');
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-4 p-8">
-      <Button>Primary Button</Button>
-      <Button variant="secondary">Secondary Button</Button>
-      <Button variant="ghost">Ghost Button</Button>
-      <Button variant="danger">Danger Button</Button>
-      <Button size="sm">Small Button</Button>
-      <Button size="lg">Large Button</Button>
-      <Button disabled>Disabled Button</Button>
-      <Button leftIcon="🚀">Launch Course</Button>
-      <Button rightIcon="→">Next Lesson</Button>
-      <Button loading>Loading Button</Button>
-      {/*---------- Input-------- */}
-      <div className="w-full max-w-md space-y-5">
-        <Input
-          id="name"
-          label="Full Name"
-          placeholder="Enter your name"
-          helperText="Please enter your full name"
+    <div>
+      <main className="flex min-h-screen flex-col items-center justify-center gap-4 p-8">
+        <Button>Primary Button</Button>
+        <Button variant="secondary">Secondary Button</Button>
+        <Button variant="ghost">Ghost Button</Button>
+        <Button variant="danger">Danger Button</Button>
+        <Button size="sm">Small Button</Button>
+        <Button size="lg">Large Button</Button>
+        <Button disabled>Disabled Button</Button>
+        <Button leftIcon="🚀">Launch Course</Button>
+        <Button rightIcon="→">Next Lesson</Button>
+        <Button loading>Loading Button</Button>
+        {/*---------- Input-------- */}
+        <div className="w-full max-w-md space-y-5">
+          <Input
+            id="name"
+            label="Full Name"
+            placeholder="Enter your name"
+            helperText="Please enter your full name"
+          />
+
+          <Input
+            id="email"
+            label="Email Address"
+            placeholder="Enter your email"
+            error="Email is required"
+          />
+          <Input
+            id="disabled"
+            label="Disabled Input"
+            placeholder="Disabled field"
+            disabled
+          />
+        </div>
+        {/*---------------- Textarea ---------- */}
+        <div className="w-full max-w-md space-y-4">
+          <Textarea
+            id="description"
+            label="Course Description"
+            placeholder="Write course description..."
+            helperText="Maximum 500 characters"
+          />
+
+          <Textarea
+            id="feedback"
+            label="Feedback"
+            placeholder="Write feedback..."
+            error="Feedback is required"
+          />
+
+          <Textarea
+            id="disabled-textarea"
+            label="Disabled Textarea"
+            placeholder="Disabled textarea"
+            disabled
+          />
+        </div>
+        {/*------- Badge Component ----  */}
+        <div className="flex flex-wrap gap-3">
+          <Badge variant="success">Published</Badge>
+
+          <Badge variant="warning">Pending</Badge>
+
+          <Badge variant="error">Failed</Badge>
+
+          <Badge variant="info">In Progress</Badge>
+          <Badge variant="neutral">Draft</Badge>
+        </div>
+        {/*------------- card ----------  */}
+        <Card
+          image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+          courseName="Web Development"
+          duration="8 Weeks"
+          buttonText="Start Learning"
+        />
+        {/*------------- Avatar ----------  */}
+        <div className="flex items-center gap-4">
+          <Avatar
+            src="https://i.pravatar.cc/150?img=1"
+            name="Mahmuda Nasrin"
+            size="xs"
+          />
+
+          <Avatar
+            src="https://i.pravatar.cc/150?img=2"
+            name="Mahmuda Nasrin"
+            size="sm"
+          />
+
+          <Avatar name="Mahmuda Nasrin" size="md" />
+
+          <Avatar name="Cyber Vast" size="lg" />
+        </div>
+
+        {/*------------- Navitems ----------  */}
+
+        <div className="flex w-64 flex-col gap-3 rounded-md border p-4">
+          <NavItem icon="🏠" label="Dashboard" active />
+
+          <NavItem icon="📚" label="Courses" />
+
+          <NavItem icon="👨‍🎓" label="Students" />
+
+          <NavItem icon="⚙️" label="Settings" />
+
+          <NavItem icon="🔒" label="Premium" disabled />
+        </div>
+
+        {/*------------- Modal ----------  */}
+        <div>
+          <Modal />
+        </div>
+
+        {/* ------ Progressbar ----- */}
+
+        <ProgressBar value={25} />
+
+        <ProgressBar value={50} />
+
+        <ProgressBar value={75} />
+
+        <ProgressBar value={100} />
+
+        {/* ------------ */}
+
+        <Dropdown
+          label="Select Course"
+          value={course}
+          onChange={(e) => setCourse(e.target.value)}
+          options={[
+            {
+              value: 'react',
+              label: 'React',
+            },
+            {
+              value: 'next',
+              label: 'Next.js',
+            },
+            {
+              value: 'tailwind',
+              label: 'Tailwind',
+            },
+          ]}
         />
 
-        <Input
-          id="email"
-          label="Email Address"
-          placeholder="Enter your email"
-          error="Email is required"
-        />
-        <Input
-          id="disabled"
-          label="Disabled Input"
-          placeholder="Disabled field"
-          disabled
-        />
+        {/*------------- Sidebar ----------  */}
+      </main>
+      <div className="flex">
+        <Sidebars />
+
+        <div className="p-10">
+          <h1>LMS Dashboard</h1>
+        </div>
       </div>
-      {/*---------------- Textarea ---------- */}
-      <div className="w-full max-w-md space-y-4">
-        <Textarea
-          id="description"
-          label="Course Description"
-          placeholder="Write course description..."
-          helperText="Maximum 500 characters"
-        />
 
-        <Textarea
-          id="feedback"
-          label="Feedback"
-          placeholder="Write feedback..."
-          error="Feedback is required"
-        />
-
-        <Textarea
-          id="disabled-textarea"
-          label="Disabled Textarea"
-          placeholder="Disabled textarea"
-          disabled
-        />
-      </div>
-      {/*------- Badge Component ----  */}
-      <div className="flex flex-wrap gap-3">
-        <Badge variant="success">Published</Badge>
-
-        <Badge variant="warning">Pending</Badge>
-
-        <Badge variant="error">Failed</Badge>
-
-        <Badge variant="info">In Progress</Badge>
-        <Badge variant="neutral">Draft</Badge>
-      </div>
-      {/*------------- card ----------  */}
-      <Card
-        image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
-        courseName="Web Development"
-        duration="8 Weeks"
-        buttonText="Start Learning"
-      />
-      {/*------------- Avatar ----------  */}
-      <div className="flex items-center gap-4">
-        <Avatar
-          src="https://i.pravatar.cc/150?img=1"
-          name="Mahmuda Nasrin"
-          size="xs"
-        />
-
-        <Avatar
-          src="https://i.pravatar.cc/150?img=2"
-          name="Mahmuda Nasrin"
-          size="sm"
-        />
-
-        <Avatar name="Mahmuda Nasrin" size="md" />
-
-        <Avatar name="Cyber Vast" size="lg" />
-      </div>
-      {/*------------- Sidebar ----------  */}
-
-      {/*------------- h ----------  */}
-    </main>
+      {/* <div>
+        <Sidebar />
+      </div> */}
+    </div>
   );
 }
