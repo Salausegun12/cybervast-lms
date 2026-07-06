@@ -21,7 +21,8 @@ export const Badge: React.FC<BadgeProps> = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = 'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border';
+  const baseClasses =
+    'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border';
   const variantClass = variantClasses[variant];
 
   return (

@@ -5,7 +5,12 @@ export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
   showLabel?: boolean;
 }
 
-export const ProgressBar: React.FC<ProgressBarProps> = ({ progress, showLabel = true, className = '', ...props }) => {
+export const ProgressBar: React.FC<ProgressBarProps> = ({
+  progress,
+  showLabel = true,
+  className = '',
+  ...props
+}) => {
   const clampedProgress = Math.min(Math.max(progress, 0), 100);
 
   return (

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 
@@ -69,10 +69,17 @@ export const Dropdown: React.FC<DropdownProps> = ({
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm text-left shadow-sm focus:outline-none focus:ring-2 focus:ring-[#7B2FBE]/20 focus:border-[#7B2FBE]"
       >
-        <span className={`block truncate ${!value || (Array.isArray(value) && value.length === 0) ? 'text-gray-400' : 'text-gray-900'}`}>
+        <span
+          className={`block truncate ${!value || (Array.isArray(value) && value.length === 0) ? 'text-gray-400' : 'text-gray-900'}`}
+        >
           {getDisplayValue()}
         </span>
-        <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-5 h-5 text-gray-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
@@ -95,8 +102,18 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 >
                   {option.label}
                   {isSelected && (
-                    <svg className="w-4 h-4 text-[#7B2FBE]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-4 h-4 text-[#7B2FBE]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   )}
                 </li>
