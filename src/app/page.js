@@ -72,29 +72,23 @@ import Textarea from '@/components/ui/Textarea';
 
 import Badge from '@/components/ui/Badge';
 
+import Card from '@/components/ui/Card';
+
+import Avatar from '@/components/ui/Avatar';
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-4 p-8">
       <Button>Primary Button</Button>
-
       <Button variant="secondary">Secondary Button</Button>
-
       <Button variant="ghost">Ghost Button</Button>
-
       <Button variant="danger">Danger Button</Button>
-
       <Button size="sm">Small Button</Button>
-
       <Button size="lg">Large Button</Button>
-
       <Button disabled>Disabled Button</Button>
-
       <Button leftIcon="🚀">Launch Course</Button>
-
       <Button rightIcon="→">Next Lesson</Button>
-
       <Button loading>Loading Button</Button>
-
       {/*---------- Input-------- */}
       <div className="w-full max-w-md space-y-5">
         <Input
@@ -117,7 +111,6 @@ export default function Home() {
           disabled
         />
       </div>
-
       {/*---------------- Textarea ---------- */}
       <div className="w-full max-w-md space-y-4">
         <Textarea
@@ -152,6 +145,34 @@ export default function Home() {
         <Badge variant="info">In Progress</Badge>
         <Badge variant="neutral">Draft</Badge>
       </div>
+      {/*------------- card ----------  */}
+      <Card
+        image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+        courseName="Web Development"
+        duration="8 Weeks"
+        buttonText="Start Learning"
+      />
+      {/*------------- Avatar ----------  */}
+      <div className="flex items-center gap-4">
+        <Avatar
+          src="https://i.pravatar.cc/150?img=1"
+          name="Mahmuda Nasrin"
+          size="xs"
+        />
+
+        <Avatar
+          src="https://i.pravatar.cc/150?img=2"
+          name="Mahmuda Nasrin"
+          size="sm"
+        />
+
+        <Avatar name="Mahmuda Nasrin" size="md" />
+
+        <Avatar name="Cyber Vast" size="lg" />
+      </div>
+      {/*------------- Sidebar ----------  */}
+
+      {/*------------- h ----------  */}
     </main>
   );
 }
