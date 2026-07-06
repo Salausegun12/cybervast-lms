@@ -1,3 +1,5 @@
+"use client";
+import React, { useState } from 'react';
 import { Button } from '../components/Button/Button';
 import { Input } from '../components/Input/Input';
 import { Textarea } from '../components/Textarea/Textarea';
@@ -5,8 +7,11 @@ import { Badge } from '../components/Badge/Badge';
 import { Avatar } from '../components/Avatar/Avatar';
 import { Card, CardHeader, CardBody, CardFooter } from '../components/Card/Card';
 import { Sidebar, NavItem } from '../components/Sidebar/Sidebar';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from '../components/Modal/Modal';
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="p-12 max-w-3xl mx-auto flex flex-col gap-10 items-center bg-gray-50 min-h-screen">
       
@@ -21,6 +26,28 @@ export default function Home() {
           </Sidebar>
         </div>
       </div>
+
+      {/* Modal Section */}
+      <div className="flex flex-col gap-4 w-full">
+        <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">Modal / Dialog Component</h2>
+        <div className="flex bg-white p-6 rounded-2xl shadow-sm border border-gray-100 w-full justify-center">
+          <Button variant="primary" onClick={() => setIsModalOpen(true)}>Open Modal</Button>
+          
+          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+            <ModalHeader>
+              <h3 className="text-lg font-semibold text-gray-900">Delete Course</h3>
+            </ModalHeader>
+            <ModalBody>
+              <p className="text-gray-600">Are you sure you want to delete this course? All of the data will be permanently removed. This action cannot be undone.</p>
+            </ModalBody>
+            <ModalFooter>
+              <Button variant="ghost" onClick={() => setIsModalOpen(false)}>Cancel</Button>
+              <Button variant="danger" onClick={() => setIsModalOpen(false)}>Delete</Button>
+            </ModalFooter>
+          </Modal>
+        </div>
+      </div>
+
 
       {/* Avatars Section */}
       <div className="flex flex-col gap-4 w-full">
