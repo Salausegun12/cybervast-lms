@@ -9,9 +9,12 @@ import { Card, CardHeader, CardBody, CardFooter } from '../components/Card/Card'
 import { Sidebar, NavItem } from '../components/Sidebar/Sidebar';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from '../components/Modal/Modal';
 import { ProgressBar } from '../components/ProgressBar/ProgressBar';
+import { Dropdown } from '../components/Dropdown/Dropdown';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState<string | undefined>();
+  const [multiValues, setMultiValues] = useState<string[]>([]);
 
   return (
     <div className="p-12 max-w-3xl mx-auto flex flex-col gap-10 items-center bg-gray-50 min-h-screen">
@@ -56,6 +59,39 @@ export default function Home() {
           <ProgressBar progress={25} />
           <ProgressBar progress={75} />
           <ProgressBar progress={100} showLabel={false} />
+        </div>
+      </div>
+
+      {/* Dropdown Section */}
+      <div className="flex flex-col gap-4 w-full pb-12">
+        <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">Dropdown Component</h2>
+        <div className="flex flex-col md:flex-row gap-6 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 w-full">
+          <div className="w-full">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Single Select</label>
+            <Dropdown
+              options={[
+                { value: 'react', label: 'React for Beginners' },
+                { value: 'ui', label: 'Advanced UI Design' },
+                { value: 'nextjs', label: 'Next.js Mastery' },
+              ]}
+              value={selectedValue}
+              onChange={setSelectedValue}
+            />
+          </div>
+          <div className="w-full">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Multi Select</label>
+            <Dropdown
+              multiSelect
+              options={[
+                { value: 'frontend', label: 'Frontend' },
+                { value: 'backend', label: 'Backend' },
+                { value: 'design', label: 'Design' },
+              ]}
+              value={multiValues}
+              onChange={setMultiValues}
+              placeholder="Select multiple tags..."
+            />
+          </div>
         </div>
       </div>
 
