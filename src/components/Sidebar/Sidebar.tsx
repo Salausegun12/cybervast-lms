@@ -22,7 +22,7 @@ export const NavItem: React.FC<NavItemProps> = ({ icon, label, active, className
   );
 };
 
-export interface SidebarProps extends React.HTMLAttributes<HTMLAsideElement> {
+export interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   defaultCollapsed?: boolean;
 }
